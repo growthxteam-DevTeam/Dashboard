@@ -1,0 +1,163 @@
+{
+  "Header": {
+    "language": "Changer de langue"
+  },
+  "NotFound": {
+    "title": "Page introuvable",
+    "description": "La page que vous recherchez n'existe pas ou a été déplacée.",
+    "back": "Retour à l'accueil"
+  },
+  "Validation": {
+    "emailInvalid": "Saisissez une adresse e-mail valide",
+    "passwordRequired": "Le mot de passe est obligatoire"
+  },
+  "Onboarding": {
+    "options": {
+      "program": {
+        "zero-to-launch": "Zero to Launch (6 semaines)",
+        "build-for-funding": "Build for Funding (8 semaines)",
+        "scale-your-sales": "Scale your Sales (6 semaines)",
+        "price-for-profit": "Price for Profit (4 semaines)",
+        "lead-your-team": "Lead your Team (6 semaines)"
+      },
+      "cohort": {
+        "cohort-1": "Cohorte 1",
+        "cohort-2": "Cohorte 2",
+        "cohort-3": "Cohorte 3",
+        "cohort-4": "Cohorte 4"
+      },
+      "gender": {
+        "male": "Homme",
+        "female": "Femme",
+        "undisclosed": "Je préfère ne pas répondre"
+      },
+      "operatingDuration": {
+        "less-than-6-months": "Moins de 6 mois",
+        "6-months-to-1-year": "De 6 mois à 1 an",
+        "1-3-years": "1 à 3 ans",
+        "3-5-years": "3 à 5 ans",
+        "more-than-5-years": "Plus de 5 ans"
+      },
+      "averageRevenue": {
+        "no-revenue-yet": "Pas encore de revenus, mais des clients prêts à payer ou des pilotes en cours",
+        "early-revenue": "Revenus naissants (moins de ₦500k/mois)",
+        "growing-revenue": "Revenus en croissance (₦500k – ₦5m/mois)",
+        "significant-revenue": "Revenus significatifs (plus de ₦5m/mois)"
+      },
+      "fullTimeCommitment": {
+        "full-time": "Oui, à plein temps",
+        "not-yet": "Pas encore, je prévois de l'être"
+      },
+      "accessibilityNeed": {
+        "vision": "Vision (aveugle ou malvoyant(e))",
+        "hearing": "Audition (sourd(e) ou malentendant(e))",
+        "mobility": "Mobilité ou différences motrices",
+        "cognitive": "Différences cognitives ou d'apprentissage",
+        "speech": "Parole (limitée ou absente)",
+        "other": "Autre besoin non listé ici",
+        "undisclosed": "Je préfère ne pas répondre"
+      },
+      "hasAccessibilityNeeds": {
+        "yes": "Oui, j'ai des besoins d'accessibilité",
+        "no": "Non, je n'ai pas de besoins d'accessibilité"
+      }
+    }
+  },
+  "Admin": {
+    "login": {
+      "title": "Connexion administrateur",
+      "subtitle": "Réservé à l'équipe. Connectez-vous pour examiner les candidatures et envoyer des invitations.",
+      "email": "Adresse e-mail",
+      "password": "Mot de passe",
+      "showPassword": "Afficher le mot de passe",
+      "hidePassword": "Masquer le mot de passe",
+      "submit": "Se connecter",
+      "submitting": "Connexion...",
+      "welcomeToast": "Connecté",
+      "error": "Une erreur est survenue lors de la connexion. Veuillez réessayer."
+    },
+    "shell": {
+      "title": "Admin",
+      "logout": "Se déconnecter"
+    },
+    "applications": {
+      "title": "Candidatures",
+      "subtitle": "Consultez ce que chaque candidat a soumis, puis envoyez-lui une invitation avec son code GS ou refusez sa candidature.",
+      "count": "{count, plural, one {# candidature} other {# candidatures}}",
+      "empty": "Aucune candidature pour le moment.",
+      "loadError": "Impossible de charger les candidatures.",
+      "retry": "Réessayer",
+      "columns": {
+        "applicant": "Candidat",
+        "business": "Entreprise",
+        "program": "Programme",
+        "applied": "Reçue le",
+        "status": "Statut",
+        "actions": "Actions"
+      },
+      "status": {
+        "pending": "En attente",
+        "reviewed": "Examinée",
+        "accepted": "Invité(e)",
+        "rejected": "Refusée"
+      },
+      "invitedOn": "Invitation envoyée le {date}",
+      "accountCreated": "Compte créé",
+      "view": "Voir",
+      "invite": "Envoyer l'invitation",
+      "resend": "Renvoyer l'invitation",
+      "inviting": "Envoi...",
+      "inviteSent": "Invitation envoyée à {email}",
+      "inviteError": "L'invitation n'a pas pu être envoyée. Veuillez réessayer.",
+      "pagination": {
+        "pageOf": "Page {page} sur {total}",
+        "previous": "Page précédente",
+        "next": "Page suivante"
+      },
+      "reject": "Refuser",
+      "rejectSent": "E-mail de refus envoyé à {email}",
+      "rejectError": "La candidature n'a pas pu être refusée. Veuillez réessayer.",
+      "rejectDialog": {
+        "title": "Refuser cette candidature ?",
+        "description": "{name} ({email}) recevra un e-mail l'informant que sa candidature n'a pas été retenue. Vous pourrez toujours l'inviter plus tard.",
+        "cancel": "Annuler",
+        "confirm": "Refuser et envoyer l'e-mail",
+        "rejecting": "Refus en cours..."
+      }
+    },
+    "details": {
+      "title": "Détails de la candidature",
+      "notProvided": "Non renseigné",
+      "photoAlt": "Photo d'identité de {name}",
+      "sections": {
+        "portal": "Candidature",
+        "personal": "Informations personnelles",
+        "business": "Informations sur l'entreprise",
+        "who": "Qui vous êtes",
+        "accessibility": "Accessibilité et accompagnement"
+      },
+      "fields": {
+        "fullName": "Nom complet",
+        "email": "E-mail",
+        "program": "Programme",
+        "cohort": "Cohorte",
+        "title": "Titre",
+        "surname": "Nom de famille",
+        "firstName": "Prénom",
+        "businessName": "Nom de l'entreprise",
+        "dateOfBirth": "Date de naissance",
+        "gender": "Genre",
+        "businessDescription": "Activité de l'entreprise",
+        "operatingDuration": "En activité depuis",
+        "averageRevenue": "Revenu moyen",
+        "fullTimeCommitment": "Engagement à temps plein",
+        "challengeAndSkillGap": "Principal défi et lacune de compétences",
+        "cohortMotivation": "Pourquoi il/elle veut rejoindre",
+        "hasAccessibilityNeeds": "Besoins d'accessibilité",
+        "accessibilityNeed": "Type d'accompagnement",
+        "accessibilityNotes": "Notes",
+        "submitted": "Envoyée"
+      }
+    }
+  }
+}

@@ -9,7 +9,19 @@
   },
   "Validation": {
     "emailInvalid": "Enter a valid email address",
-    "passwordRequired": "Password is required"
+    "passwordRequired": "Password is required",
+    "textRequired": "Text is required",
+    "textMax": "Text must be 500 characters or fewer",
+    "dateRequired": "Choose a date and time",
+    "pointsInvalid": "Enter whole points from 0 to 1000",
+    "programRequired": "Select a program",
+    "cohortRequired": "Select a cohort",
+    "titleRequired": "Title is required",
+    "titleMax": "Title must be 100 characters or fewer",
+    "weeksInvalid": "Enter a whole number of weeks from 1 to 104",
+    "leaderRequired": "Leader is required",
+    "leaderMax": "Leader must be 100 characters or fewer",
+    "membersInvalid": "Enter a whole number of members"
   },
   "Onboarding": {
     "options": {
@@ -78,7 +90,11 @@
     },
     "shell": {
       "title": "Admin",
-      "logout": "Log out"
+      "logout": "Log out",
+      "nav": {
+        "applications": "Applications",
+        "dashboard": "Dashboard"
+      }
     },
     "applications": {
       "title": "Applications",
@@ -157,6 +173,120 @@
         "accessibilityNeed": "Type of support",
         "accessibilityNotes": "Notes",
         "submitted": "Submitted"
+      }
+    },
+    "dashboard": {
+      "title": "Learner dashboard",
+      "subtitle": "Control what learners see on their dashboard. Each item can target a program and cohort, or everyone.",
+      "bannersHint": "One banner per program and cohort. Learners without a banner just see their program name.",
+      "tabs": {
+        "banners": "Program banner",
+        "announcement": "Announcements",
+        "event": "Schedule",
+        "assignment": "To-do"
+      },
+      "audience": {
+        "everyone": "Everyone",
+        "program": "Program",
+        "cohort": "Cohort",
+        "allPrograms": "All programs",
+        "allCohorts": "All cohorts",
+        "select": "Select..."
+      },
+      "columns": {
+        "text": {
+          "announcement": "Message",
+          "event": "Event",
+          "assignment": "Assignment"
+        },
+        "date": {
+          "event": "Date",
+          "assignment": "Due"
+        },
+        "points": "Points",
+        "audience": "Audience",
+        "actions": "Actions",
+        "title": "Title",
+        "duration": "Duration",
+        "leader": "Leader",
+        "members": "Members"
+      },
+      "add": {
+        "banner": "Add banner",
+        "announcement": "Add announcement",
+        "event": "Add event",
+        "assignment": "Add assignment"
+      },
+      "empty": {
+        "banner": "No banners yet.",
+        "announcement": "No announcements yet.",
+        "event": "No events yet.",
+        "assignment": "No assignments yet."
+      },
+      "loadError": "We couldn't load this content.",
+      "retry": "Try again",
+      "edit": "Edit",
+      "delete": "Delete",
+      "weeks": "{count, plural, one {# week} other {# weeks}}",
+      "itemForm": {
+        "titles": {
+          "announcement": {
+            "create": "Add announcement",
+            "edit": "Edit announcement"
+          },
+          "event": {
+            "create": "Add event",
+            "edit": "Edit event"
+          },
+          "assignment": {
+            "create": "Add assignment",
+            "edit": "Edit assignment"
+          }
+        },
+        "audienceHint": "Leave program and cohort on “All” to show this to every learner.",
+        "fields": {
+          "text": {
+            "announcement": "Message",
+            "event": "Event title",
+            "assignment": "Assignment title"
+          },
+          "date": {
+            "event": "Date and time",
+            "assignment": "Due date and time"
+          },
+          "points": "Points"
+        },
+        "save": "Save",
+        "saving": "Saving...",
+        "cancel": "Cancel",
+        "saved": "Saved",
+        "error": "Could not save. Please try again."
+      },
+      "bannerForm": {
+        "titleCreate": "Add banner",
+        "titleEdit": "Edit banner",
+        "hint": "Saving a program and cohort that already has a banner replaces it.",
+        "fields": {
+          "title": "Banner title",
+          "durationWeeks": "Duration (weeks)",
+          "cohortMembers": "Cohort members",
+          "leader": "Led by"
+        },
+        "save": "Save",
+        "saving": "Saving...",
+        "cancel": "Cancel",
+        "saved": "Banner saved",
+        "error": "Could not save the banner. Please try again."
+      },
+      "deleteDialog": {
+        "title": "Delete this?",
+        "itemDescription": "“{text}” will disappear from learners' dashboards.",
+        "bannerDescription": "The banner for {audience} will be removed. Those learners will see just their program name.",
+        "cancel": "Cancel",
+        "confirm": "Delete",
+        "deleting": "Deleting...",
+        "deleted": "Deleted",
+        "error": "Could not delete. Please try again."
       }
     }
   }

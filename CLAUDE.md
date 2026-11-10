@@ -28,12 +28,20 @@ Routes (all keep the `/admin` prefix, so the URLs match what the backend docs an
 - `app/admin/login/` — admin sign-in. `useAdminLogin` -> `authApi.adminLogin` -> `POST /admin/auth/login`; seeded dev
   credentials are in `../growth-x-be/README.md`. Stores the JWT with `setCredentials` and a user whose
   `role.title` is `ADMIN_ROLE_TITLE`.
-- `app/admin/(portal)/` — wraps its pages in `AdminShell`, which sends anyone without an admin session to `/admin/login`
+- `app/admin/(portal)/` — wraps its pages in `AdminShell`, which lays out `AdminSidebar` (left column on desktop, fixed bottom bar
+  below `lg`; links come from `SIDEBAR_LINKS` in `(portal)/_constants`, add new admin pages there) and `AdminNavbar` (admin
+  name, language, theme, log out) around the page, and sends anyone without an admin session to `/admin/login`
   (UI gate only; the backend's admin JWT is the real protection).
 - `app/admin/(portal)/applications/` — the review table: every application, paginated (`ADMIN_APPLICATIONS_PAGE_SIZE`),
   with a details dialog (all submitted fields), "Send invite"/"Resend invite" (`POST /admin/applications/:id/invite`,
   emails the GS code) and "Reject" behind a confirmation dialog (`POST /admin/applications/:id/reject`, emails a
   rejection and sets status `rejected`).
+- `app/admin/(portal)/dashboard/` — manages the learner dashboard's content (tabs: Program banner, Announcements,
+  Schedule, To-do). Banners (`PUT /admin/dashboard/banners`, one per program + cohort) and items
+  (`/admin/dashboard/items?type=`: announcements, events, assignments) each get a table with add/edit dialogs
+  (react-hook-form + zod; form fields are strings, `""` in program/cohort means "everyone") and a delete confirmation.
+  `PROGRAM_VALUES` / `COHORT_VALUES` in `_constants` mirror the onboarding form and the backend's `dashboard.constants.ts`.
+  Text is English only.
 
 The feature-slice convention is `page.tsx` (server component that only assembles) + `_components/`, `_hooks/`, `_constants/`,
 `_types/`, `_lib/`; logic lives in one `use<Feature>` hook.

@@ -46,6 +46,63 @@ export interface AdminApplication {
   hasAccount: boolean;
 }
 
+export type DashboardItemType = "announcement" | "event" | "assignment";
+
+// What learners see on their dashboard (growth-x-be GET /admin/dashboard/items). program/cohort null
+// means "everyone". `date` is the event date or the assignment's due date; `points` is assignments only.
+export interface DashboardItem {
+  id: string;
+  type: DashboardItemType;
+  program: string | null;
+  cohort: string | null;
+  text: string;
+  date: string | null;
+  points: number | null;
+  createdAt: string;
+}
+
+export interface CreateDashboardItemBody {
+  type: DashboardItemType;
+  program: string | null;
+  cohort: string | null;
+  text: string;
+  date?: string;
+  points?: number;
+}
+
+export type UpdateDashboardItemBody = Partial<Omit<CreateDashboardItemBody, "type">>;
+
+// The program banner for one program + cohort (growth-x-be GET /admin/dashboard/banners).
+export interface DashboardBanner {
+  id: string;
+  program: string;
+  cohort: string;
+  title: string;
+  durationWeeks: number;
+  leader: string;
+  cohortMembers: number;
+}
+
+export type UpsertDashboardBannerBody = Omit<DashboardBanner, "id">;
+
+interface ListResponse<T> {
+  status: string;
+  statusCode: number;
+  data: T[];
+}
+
+interface ItemResponse<T> {
+  status: string;
+  statusCode: number;
+  data: T;
+}
+
+interface MessageResponse {
+  status: string;
+  statusCode: number;
+  message: string;
+}
+
 export const ADMIN_APPLICATIONS_PAGE_SIZE = 10;
 
 interface AdminApplicationsResponse {
@@ -67,37 +124,84 @@ interface ApplicantActionResponse {
   data: AdminApplication;
 }
 
-export const adminApi = apiSlice.enhanceEndpoints({ addTagTypes: ["AdminApplications"] }).injectEndpoints({
-  endpoints: (builder) => ({
-    getAdminApplications: builder.query<AdminApplicationsResponse, { page: number; limit: number }>({
-      query: ({ page, limit }) => ({
-        url: "/admin/applications",
-        params: { page, limit },
+export const adminApi = apiSlice
+  .enhanceEndpoints({ addTagTypes: ["AdminApplications", "DashboardItems", "DashboardBanners"] })
+  .injectEndpoints({
+    endpoints: (builder) => ({
+      getAdminApplications: builder.query<AdminApplicationsResponse, { page: number; limit: number }>({
+        query: ({ page, limit }) => ({
+          url: "/admin/applications",
+          params: { page, limit },
+        }),
+        providesTags: ["AdminApplications"],
       }),
-      providesTags: ["AdminApplications"],
-    }),
 
-    inviteApplicant: builder.mutation<ApplicantActionResponse, string>({
-      query: (id) => ({
-        url: `/admin/applications/${id}/invite`,
-        method: "POST",
+      inviteApplicant: builder.mutation<ApplicantActionResponse, string>({
+        query: (id) => ({
+          url: `/admin/applications/${id}/invite`,
+          method: "POST",
+        }),
+        invalidatesTags: ["AdminApplications"],
       }),
-      invalidatesTags: ["AdminApplications"],
-    }),
 
-    // Emails the applicant a rejection and marks the application rejected.
-    rejectApplicant: builder.mutation<ApplicantActionResponse, string>({
-      query: (id) => ({
-        url: `/admin/applications/${id}/reject`,
-        method: "POST",
+      // Emails the applicant a rejection and marks the application rejected.
+      rejectApplicant: builder.mutation<ApplicantActionResponse, string>({
+        query: (id) => ({
+          url: `/admin/applications/${id}/reject`,
+          method: "POST",
+        }),
+        invalidatesTags: ["AdminApplications"],
       }),
-      invalidatesTags: ["AdminApplications"],
+
+      getDashboardItems: builder.query<ListResponse<DashboardItem>, DashboardItemType>({
+        query: (type) => ({ url: "/admin/dashboard/items", params: { type } }),
+        providesTags: ["DashboardItems"],
+      }),
+
+      createDashboardItem: builder.mutation<ItemResponse<DashboardItem>, CreateDashboardItemBody>({
+        query: (body) => ({ url: "/admin/dashboard/items", method: "POST", body }),
+        invalidatesTags: ["DashboardItems"],
+      }),
+
+      updateDashboardItem: builder.mutation<ItemResponse<DashboardItem>, { id: string; body: UpdateDashboardItemBody }>(
+        {
+          query: ({ id, body }) => ({ url: `/admin/dashboard/items/${id}`, method: "PATCH", body }),
+          invalidatesTags: ["DashboardItems"],
+        },
+      ),
+
+      deleteDashboardItem: builder.mutation<MessageResponse, string>({
+        query: (id) => ({ url: `/admin/dashboard/items/${id}`, method: "DELETE" }),
+        invalidatesTags: ["DashboardItems"],
+      }),
+
+      getDashboardBanners: builder.query<ListResponse<DashboardBanner>, void>({
+        query: () => "/admin/dashboard/banners",
+        providesTags: ["DashboardBanners"],
+      }),
+
+      // Creates the banner for a program + cohort, or replaces the existing one.
+      upsertDashboardBanner: builder.mutation<ItemResponse<DashboardBanner>, UpsertDashboardBannerBody>({
+        query: (body) => ({ url: "/admin/dashboard/banners", method: "PUT", body }),
+        invalidatesTags: ["DashboardBanners"],
+      }),
+
+      deleteDashboardBanner: builder.mutation<MessageResponse, string>({
+        query: (id) => ({ url: `/admin/dashboard/banners/${id}`, method: "DELETE" }),
+        invalidatesTags: ["DashboardBanners"],
+      }),
     }),
-  }),
-});
+  });
 
 export const {
   useGetAdminApplicationsQuery,
   useInviteApplicantMutation,
   useRejectApplicantMutation,
+  useGetDashboardItemsQuery,
+  useCreateDashboardItemMutation,
+  useUpdateDashboardItemMutation,
+  useDeleteDashboardItemMutation,
+  useGetDashboardBannersQuery,
+  useUpsertDashboardBannerMutation,
+  useDeleteDashboardBannerMutation,
 } = adminApi;

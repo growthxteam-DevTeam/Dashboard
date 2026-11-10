@@ -9,7 +9,19 @@
   },
   "Validation": {
     "emailInvalid": "Saisissez une adresse e-mail valide",
-    "passwordRequired": "Le mot de passe est obligatoire"
+    "passwordRequired": "Le mot de passe est obligatoire",
+    "textRequired": "Le texte est obligatoire",
+    "textMax": "Le texte ne doit pas dépasser 500 caractères",
+    "dateRequired": "Choisissez une date et une heure",
+    "pointsInvalid": "Saisissez des points entiers de 0 à 1000",
+    "programRequired": "Sélectionnez un programme",
+    "cohortRequired": "Sélectionnez une cohorte",
+    "titleRequired": "Le titre est obligatoire",
+    "titleMax": "Le titre ne doit pas dépasser 100 caractères",
+    "weeksInvalid": "Saisissez un nombre entier de semaines entre 1 et 104",
+    "leaderRequired": "Le responsable est obligatoire",
+    "leaderMax": "Le responsable ne doit pas dépasser 100 caractères",
+    "membersInvalid": "Saisissez un nombre entier de membres"
   },
   "Onboarding": {
     "options": {
@@ -78,7 +90,11 @@
     },
     "shell": {
       "title": "Admin",
-      "logout": "Se déconnecter"
+      "logout": "Se déconnecter",
+      "nav": {
+        "applications": "Candidatures",
+        "dashboard": "Tableau de bord"
+      }
     },
     "applications": {
       "title": "Candidatures",
@@ -157,6 +173,120 @@
         "accessibilityNeed": "Type d'accompagnement",
         "accessibilityNotes": "Notes",
         "submitted": "Envoyée"
+      }
+    },
+    "dashboard": {
+      "title": "Tableau de bord des apprenants",
+      "subtitle": "Gérez ce que les apprenants voient sur leur tableau de bord. Chaque élément peut cibler un programme et une cohorte, ou tout le monde.",
+      "bannersHint": "Une bannière par programme et cohorte. Sans bannière, les apprenants voient simplement le nom de leur programme.",
+      "tabs": {
+        "banners": "Bannière du programme",
+        "announcement": "Annonces",
+        "event": "Calendrier",
+        "assignment": "À faire"
+      },
+      "audience": {
+        "everyone": "Tout le monde",
+        "program": "Programme",
+        "cohort": "Cohorte",
+        "allPrograms": "Tous les programmes",
+        "allCohorts": "Toutes les cohortes",
+        "select": "Sélectionner..."
+      },
+      "columns": {
+        "text": {
+          "announcement": "Message",
+          "event": "Événement",
+          "assignment": "Devoir"
+        },
+        "date": {
+          "event": "Date",
+          "assignment": "À rendre"
+        },
+        "points": "Points",
+        "audience": "Public",
+        "actions": "Actions",
+        "title": "Titre",
+        "duration": "Durée",
+        "leader": "Responsable",
+        "members": "Membres"
+      },
+      "add": {
+        "banner": "Ajouter une bannière",
+        "announcement": "Ajouter une annonce",
+        "event": "Ajouter un événement",
+        "assignment": "Ajouter un devoir"
+      },
+      "empty": {
+        "banner": "Aucune bannière pour le moment.",
+        "announcement": "Aucune annonce pour le moment.",
+        "event": "Aucun événement pour le moment.",
+        "assignment": "Aucun devoir pour le moment."
+      },
+      "loadError": "Impossible de charger ce contenu.",
+      "retry": "Réessayer",
+      "edit": "Modifier",
+      "delete": "Supprimer",
+      "weeks": "{count, plural, one {# semaine} other {# semaines}}",
+      "itemForm": {
+        "titles": {
+          "announcement": {
+            "create": "Ajouter une annonce",
+            "edit": "Modifier l'annonce"
+          },
+          "event": {
+            "create": "Ajouter un événement",
+            "edit": "Modifier l'événement"
+          },
+          "assignment": {
+            "create": "Ajouter un devoir",
+            "edit": "Modifier le devoir"
+          }
+        },
+        "audienceHint": "Laissez le programme et la cohorte sur « Tous » pour l'afficher à tous les apprenants.",
+        "fields": {
+          "text": {
+            "announcement": "Message",
+            "event": "Titre de l'événement",
+            "assignment": "Titre du devoir"
+          },
+          "date": {
+            "event": "Date et heure",
+            "assignment": "Date et heure limites"
+          },
+          "points": "Points"
+        },
+        "save": "Enregistrer",
+        "saving": "Enregistrement...",
+        "cancel": "Annuler",
+        "saved": "Enregistré",
+        "error": "Enregistrement impossible. Veuillez réessayer."
+      },
+      "bannerForm": {
+        "titleCreate": "Ajouter une bannière",
+        "titleEdit": "Modifier la bannière",
+        "hint": "Enregistrer un programme et une cohorte qui ont déjà une bannière la remplace.",
+        "fields": {
+          "title": "Titre de la bannière",
+          "durationWeeks": "Durée (semaines)",
+          "cohortMembers": "Membres de la cohorte",
+          "leader": "Dirigé par"
+        },
+        "save": "Enregistrer",
+        "saving": "Enregistrement...",
+        "cancel": "Annuler",
+        "saved": "Bannière enregistrée",
+        "error": "Impossible d'enregistrer la bannière. Veuillez réessayer."
+      },
+      "deleteDialog": {
+        "title": "Supprimer cet élément ?",
+        "itemDescription": "« {text} » disparaîtra des tableaux de bord des apprenants.",
+        "bannerDescription": "La bannière de {audience} sera supprimée. Ces apprenants verront simplement le nom de leur programme.",
+        "cancel": "Annuler",
+        "confirm": "Supprimer",
+        "deleting": "Suppression...",
+        "deleted": "Supprimé",
+        "error": "Suppression impossible. Veuillez réessayer."
       }
     }
   }
